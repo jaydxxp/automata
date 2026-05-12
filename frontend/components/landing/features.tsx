@@ -111,7 +111,7 @@ export function MajorFeatures() {
         transition={{ duration: 0.5 }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl font-bold tracking-tight mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
           Major Features
         </h2>
         <p className="text-gray-400 text-sm max-w-2xl mx-auto">

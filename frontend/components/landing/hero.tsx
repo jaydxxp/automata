@@ -13,7 +13,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-6xl md:text-6xl font-semibold font-hanken-grotesk tracking-tight mb-6 leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl font-semibold font-hanken-grotesk tracking-tight mb-6 leading-[1.1]">
             Make your 
             <br />
             <span className="">
@@ -24,7 +24,7 @@ export function Hero() {
             </span>
           </h1>
           
-          <p className="text-gray-400 text-lg md:text-sm max-w-2xl mb-8 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-400 max-w-2xl mb-8 leading-relaxed">
             Stream realtime browser events, screenshots, execution logs, failures, and structured results while your automation runs live with full visibility into every browser action.
           </p>
 

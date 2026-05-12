@@ -3,6 +3,7 @@
 import { Bug } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import ExecutionLogs from "./logs-preview";
 
 export function BugReports() {
   const [activeStep, setActiveStep] = useState(-1);
@@ -93,13 +94,10 @@ export function BugReports() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-white/5 rounded-xl p-8 border border-white/10"
+          className=""
         >
-          <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <Bug size={48} className="text-gray-600 mx-auto mb-2" />
-              <p className="text-gray-500 text-sm">Preview</p>
-            </div>
+          <div className="  flex items-center justify-center">
+           <ExecutionLogs/>
           </div>
         </motion.div>
       </div>

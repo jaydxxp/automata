@@ -21,7 +21,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="py-24 px-6 max-w-4xl mx-auto border-t border-white/5">
-      <h2 className="text-4xl font-bold tracking-tight text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12">
         Frequently asked questions
       </h2>
       <div className="space-y-4">
@@ -31,7 +31,7 @@ export function FAQ() {
               onClick={() => toggleFAQ(idx)}
               className="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors"
             >
-              <h4 className="font-semibold text-lg">{faq.q}</h4>
+              <h4 className="font-semibold text-base md:text-lg">{faq.q}</h4>
               <motion.div
                 animate={{ rotate: openIndex === idx ? 180 : 0 }}
                 transition={{ duration: 0.2 }}

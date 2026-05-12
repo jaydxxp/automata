@@ -25,7 +25,7 @@ export function HowItWorks() {
   return (
     <section className="py-24 px-6 max-w-6xl mx-auto border-t border-white/5">
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-md font-semibold tracking-tight mb-4">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
           From a request to a live browser workflow
         </h2>
         <p className="text-gray-400 text-sm max-w-lg mx-auto">
