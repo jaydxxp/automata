@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@theme inline {
+    --font-hanken-grotesk: var(--font-hanken-grotesk);
+}
+
+@utility mask-lines {
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);
+}
