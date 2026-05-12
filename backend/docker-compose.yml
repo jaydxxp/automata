@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-automata}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-postgresql://user:password@db:5432/automata}
+    depends_on:
+      - db
+    volumes:
+      - ./screenshots:/app/screenshots
+
+volumes:
+  postgres_data:
