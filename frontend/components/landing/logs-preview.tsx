@@ -125,7 +125,7 @@ export default function ExecutionLogs() {
 
   return (
     <div
-      className="rounded-2xl bg-black border border-white/10 overflow-hidden flex flex-col h-[400px]"
+      className="rounded-2xl bg-black border border-white/10 overflow-hidden flex flex-col h-[400px] w-full max-w-full"
       style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" }}
     >
  
@@ -170,7 +170,7 @@ export default function ExecutionLogs() {
                 {log.tag}
               </span>
               <span
-                className="text-zinc-400 flex-1 min-w-0"
+                className="text-zinc-400 flex-1 min-w-0 break-words"
                 dangerouslySetInnerHTML={{
                   __html: log.msg.replace(/<em>/g, '<em style="color:#d4d4d8;font-style:normal">'),
                 }}

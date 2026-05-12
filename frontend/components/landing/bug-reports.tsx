@@ -94,9 +94,9 @@ export function BugReports() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className=""
+          className="w-full max-w-full overflow-hidden mt-8 lg:mt-0"
         >
-          <div className="  flex items-center justify-center">
+          <div className="w-full">
            <ExecutionLogs/>
           </div>
         </motion.div>
