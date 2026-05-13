@@ -38,18 +38,30 @@ export default function JobsPage() {
   
   const socketRefs = useRef<Record<string, WebSocket>>({});
   const logEndRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true); 
 
   const activeJob = jobs.find(j => j.id === activeJobId) || null;
   const logs = activeJobId ? (logsByJob[activeJobId] || []) : [];
   const screenshot = activeJobId ? (screenshotsByJob[activeJobId] || null) : null;
 
-  const scrollToBottom = () => {
-    logEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+  
   useEffect(() => {
-    scrollToBottom();
-  }, [logs]);
+    
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (activeJobId && logs.length > 0 && logEndRef.current) {
+      const container = logEndRef.current.parentElement;
+      if (container) {
+        container.scrollTo({
+          top: container.scrollHeight,
+          behavior: "smooth"
+        });
+      }
+    }
+  }, [logs.length, activeJobId]); 
 
   const connectWebSocket = (jobId: string) => {
     if (socketRefs.current[jobId]) return;
