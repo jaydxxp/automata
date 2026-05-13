@@ -13,14 +13,14 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-semibold font-hanken-grotesk tracking-tight mb-6 leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl font-semibold font-hanken-grotesk tracking-tight mb-6 leading-[1.2] md:leading-[1.1]">
             Make your 
             <br />
             <span className="">
               browser agents{" "}
-              <span className="px-1 bg-white text-black rounded-2xl">
-                observable.
-              </span>
+              <span className="px-1 py-0.5 md:px-1 md:py-0 bg-white text-black rounded-xl md:rounded-2xl inline-block">
+  observable.
+</span>
             </span>
           </h1>
           

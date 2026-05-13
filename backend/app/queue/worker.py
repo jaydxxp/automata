@@ -14,25 +14,28 @@ semaphore = asyncio.Semaphore(MAX_CONCURRENT_JOBS)
 async def worker():
     logger.info("Worker started, waiting for jobs...")
     while True:
+      
+        await semaphore.acquire()
         
         job_data = await job_queue.get()
         job_id = job_data["id"]
         url = job_data["url"]
         goal = job_data["goal"]
 
-        logger.info(f"Worker picked up job {job_id}. Waiting for semaphore...")
+        logger.info(f"Worker picked up job {job_id} and acquired semaphore.")
 
-    
         async def process_job():
-            async with semaphore:
+            try:
                 logger.info(f"Worker starting execution of job {job_id}")
                 await run_job_automation(job_id, url, goal)
                 logger.info(f"Worker finished execution of job {job_id}")
+            except Exception as e:
+                logger.error(f"Worker encountered error running job {job_id}: {e}")
+            finally:
+                semaphore.release()
+                job_queue.task_done()
 
         asyncio.create_task(process_job())
-        
-      
-        job_queue.task_done()
 
 def start_worker():
     loop = asyncio.get_event_loop()
